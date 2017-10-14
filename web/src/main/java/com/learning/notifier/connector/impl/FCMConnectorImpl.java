@@ -9,11 +9,14 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by grijesh on 14/10/17.
  */
+
+@Service
 public class FCMConnectorImpl implements FCMConnector {
 
     private final String url;
@@ -39,7 +42,7 @@ public class FCMConnectorImpl implements FCMConnector {
     private HttpHeaders createHeaders(){
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
-        headers.add("Authorization", "key="+serverKey);
+        headers.add("Authorization", serverKey);
         return headers;
     }
 
@@ -49,7 +52,7 @@ public class FCMConnectorImpl implements FCMConnector {
         notificationDetails.setPriority("high");
         notificationDetails.setTitle(notification.getMesssage().getTitle());
 
-        return new FCMRequest(notification.getMesssage().getBody(), notification.getDeviceId(), notificationDetails);
+        return new FCMRequest(new FCMRequest.Data(notification.getMesssage().getBody()), notification.getDeviceId(), notificationDetails);
     }
 }
 

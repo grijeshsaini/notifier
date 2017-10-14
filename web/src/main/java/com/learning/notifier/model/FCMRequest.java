@@ -1,28 +1,31 @@
 package com.learning.notifier.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class FCMRequest {
 
-    private String body;
+    private Data data;
 
     private String to;
 
+    @JsonProperty("notification")
     private NotificationDetails notificationDetails;
 
     public FCMRequest() {
     }
 
-    public FCMRequest(String body, String to, NotificationDetails notificationDetails) {
-        this.body = body;
+    public FCMRequest(Data data, String to, NotificationDetails notificationDetails) {
+        this.data = data;
         this.to = to;
         this.notificationDetails = notificationDetails;
     }
 
-    public String getBody() {
-        return body;
+    public Data getData() {
+        return data;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setData(Data data) {
+        this.data = data;
     }
 
     public String getTo() {
@@ -39,6 +42,25 @@ public class FCMRequest {
 
     public void setNotificationDetails(NotificationDetails notificationDetails) {
         this.notificationDetails = notificationDetails;
+    }
+
+    public static class Data {
+        private String message;
+
+        public Data() {
+        }
+
+        public Data(String message) {
+            this.message = message;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
     }
 
     /**
