@@ -1,5 +1,6 @@
 package com.learning.notifier.controller;
 
+import com.learning.notifier.model.BasicMessage;
 import com.learning.notifier.model.Notification;
 import com.learning.notifier.service.NotificationService;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +32,7 @@ class NotificationControllerTest {
     @Test
     @DisplayName("Should able to send Notification")
     public void should_send_notification() {
-        Notification notification = new Notification("12312412", "Android", "Hellp");
+        Notification notification = new Notification("12312412", "Android", new BasicMessage("TITLE", "BODY"));
         doNothing().when(notificationService).sendMessage(any());
 
         ResponseEntity<String> response = notificationController.sendNotification(notification);
