@@ -1,0 +1,42 @@
+group 'com.learning'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'org.junit.platform.gradle.plugin'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath group:'org.junit.platform', name:'junit-platform-gradle-plugin', version: junit_platform_version
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: spring_boot_version
+    }
+}
+
+junitPlatform {
+    details 'tree'
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: spring_boot_version
+    compile group: 'org.mockito', name: 'mockito-all', version: mockito_version
+
+
+    compile "io.springfox:springfox-swagger2:$swagger"
+    compile "io.springfox:springfox-swagger-ui:$swagger"
+
+    testCompile group: 'org.junit.jupiter', name:'junit-jupiter-api', version: junit_jupiter_version
+    testCompile group: 'org.junit.jupiter', name:'junit-jupiter-engine', version: junit_jupiter_version
+}
