@@ -32,7 +32,7 @@ class NotificationControllerTest {
     @Test
     @DisplayName("Should able to send Notification")
     public void should_send_notification() {
-        Notification notification = new Notification("12312412", "Android", new BasicMessage("TITLE", "BODY"));
+        Notification notification = new Notification("12312412", new BasicMessage("TITLE", "BODY"));
         doNothing().when(notificationService).sendMessage(any());
 
         ResponseEntity<String> response = notificationController.sendNotification(notification);

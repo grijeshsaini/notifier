@@ -36,7 +36,7 @@ class FCMConnectorImplTest {
     @Test
     @DisplayName("Should send message")
     public void should_send_message() {
-        Notification notification = new Notification("12312412", "Android", new BasicMessage("TITLE", "BODY"));
+        Notification notification = new Notification("12312412", new BasicMessage("TITLE", "BODY"));
         Mockito.when(restTemplate.exchange(Matchers.eq("localhost"),
                 Matchers.eq(HttpMethod.POST),
                 Matchers.<HttpEntity<FCMRequest>>any(),

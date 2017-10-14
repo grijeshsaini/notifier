@@ -7,17 +7,14 @@ public class Notification {
 
     private String deviceId;
 
-    private String deviceType;
-
     private BasicMessage messsage;
 
 
     public Notification() {
     }
 
-    public Notification(String deviceId, String deviceType, BasicMessage messsage) {
+    public Notification(String deviceId, BasicMessage messsage) {
         this.deviceId = deviceId;
-        this.deviceType = deviceType;
         this.messsage = messsage;
     }
 
@@ -27,14 +24,6 @@ public class Notification {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
-    }
-
-    public String getDeviceType() {
-        return deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
     }
 
     public BasicMessage getMesssage() {
@@ -49,7 +38,6 @@ public class Notification {
     public String toString() {
         return "Notification{" +
                 "deviceId='" + deviceId + '\'' +
-                ", deviceType='" + deviceType + '\'' +
                 ", messsage=" + messsage +
                 '}';
     }

@@ -35,7 +35,7 @@ class NotificationServiceImplTest {
     @Test
     @DisplayName("Should send notification")
     public void should_send_message() {
-        Notification notification = new Notification("12312412", "Android", new BasicMessage("TITLE", "BODY"));
+        Notification notification = new Notification("12312412", new BasicMessage("TITLE", "BODY"));
         doNothing().when(fcmConnector).sendMessage(any());
 
         notificationService.sendMessage(notification);
