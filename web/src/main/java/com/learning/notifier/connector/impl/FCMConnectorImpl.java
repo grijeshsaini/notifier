@@ -51,7 +51,7 @@ public class FCMConnectorImpl implements FCMConnector {
         notificationDetails.setBody(notification.getMesssage().getBody());
         notificationDetails.setPriority("high");
         notificationDetails.setTitle(notification.getMesssage().getTitle());
-
+        notificationDetails.setSound("default");
         return new FCMRequest(new FCMRequest.Data(notification.getMesssage().getBody()), notification.getDeviceId(), notificationDetails);
     }
 }

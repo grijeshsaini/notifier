@@ -73,6 +73,8 @@ public class FCMRequest {
 
         private String priority;
 
+        private String sound;
+
         public NotificationDetails() {
         }
 
@@ -98,6 +100,14 @@ public class FCMRequest {
 
         public void setPriority(String priority) {
             this.priority = priority;
+        }
+
+        public String getSound() {
+            return sound;
+        }
+
+        public void setSound(String sound) {
+            this.sound = sound;
         }
     }
 }
